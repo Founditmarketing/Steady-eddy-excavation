@@ -379,11 +379,7 @@ const App: React.FC = () => {
               >
                 {/* AFTER IMAGE (Bottom Layer) */}
                 <img
-<<<<<<< HEAD
                   src="/assets/newafter.jpeg"
-=======
-                  src="/assets/afterimage.jpg"
->>>>>>> 9fa13adf6395d26be78a18976d4fed0eca248ac8
                   alt="After Clearing"
                   className="absolute inset-0 w-full h-full object-cover"
                 />
@@ -394,11 +390,7 @@ const App: React.FC = () => {
                   style={{ clipPath: `inset(0 ${100 - sliderPosition}% 0 0)` }}
                 >
                   <img
-<<<<<<< HEAD
                     src="/assets/newbefore.jpeg"
-=======
-                    src="/assets/beforeimage.jpeg"
->>>>>>> 9fa13adf6395d26be78a18976d4fed0eca248ac8
                     alt="Before Clearing"
                     className="absolute inset-0 w-full h-full object-cover"
                   />
