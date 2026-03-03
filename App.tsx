@@ -192,7 +192,7 @@ const App: React.FC = () => {
       } else {
         const errorData = await response.json();
         console.error('Email error:', errorData);
-        alert('Failed to send message. Please try again later.');
+        alert(`Failed to send message: ${errorData.error?.message || errorData.error || 'Please try again later.'}`);
         setFormStatus('idle');
       }
     } catch (error) {

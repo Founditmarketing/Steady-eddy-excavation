@@ -7,6 +7,13 @@ export const config = {
 };
 
 export default async function handler(req: Request) {
+    if (!process.env.RESEND_API_KEY) {
+        return new Response(JSON.stringify({ error: 'API Key missing' }), {
+            status: 500,
+            headers: { 'Content-Type': 'application/json' },
+        });
+    }
+
     if (req.method !== 'POST') {
         return new Response(JSON.stringify({ error: 'Method not allowed' }), {
             status: 405,
