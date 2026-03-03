@@ -164,15 +164,42 @@ const App: React.FC = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  const handleContactSubmit = (e: React.FormEvent) => {
+  const handleContactSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setFormStatus('submitting');
-    // Simulate network request
-    setTimeout(() => {
-      setFormStatus('success');
-      // Reset after showing success for a bit
-      setTimeout(() => setFormStatus('idle'), 5000);
-    }, 2000);
+
+    const formData = new FormData(e.currentTarget);
+    const data = {
+      firstName: formData.get('firstName'),
+      lastName: formData.get('lastName'),
+      service: formData.get('service'),
+      details: formData.get('details'),
+    };
+
+    try {
+      const response = await fetch('/api/send-email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
+
+      if (response.ok) {
+        setFormStatus('success');
+        // Reset after showing success for a bit
+        setTimeout(() => setFormStatus('idle'), 5000);
+      } else {
+        const errorData = await response.json();
+        console.error('Email error:', errorData);
+        alert('Failed to send message. Please try again later.');
+        setFormStatus('idle');
+      }
+    } catch (error) {
+      console.error('Submission error:', error);
+      alert('An error occurred. Please try again later.');
+      setFormStatus('idle');
+    }
   };
 
   const handleSliderMove = (e: React.MouseEvent | React.TouchEvent) => {
@@ -590,16 +617,16 @@ const App: React.FC = () => {
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div>
                           <label className="block text-sm font-bold text-gray-700 mb-2">First Name</label>
-                          <input required type="text" className="w-full bg-gray-50 border border-gray-300 rounded-lg p-3 focus:ring-2 focus:ring-eddy-orange outline-none transition-all" placeholder="John" />
+                          <input required name="firstName" type="text" className="w-full bg-gray-50 border border-gray-300 rounded-lg p-3 focus:ring-2 focus:ring-eddy-orange outline-none transition-all" placeholder="John" />
                         </div>
                         <div>
                           <label className="block text-sm font-bold text-gray-700 mb-2">Last Name</label>
-                          <input required type="text" className="w-full bg-gray-50 border border-gray-300 rounded-lg p-3 focus:ring-2 focus:ring-eddy-orange outline-none transition-all" placeholder="Doe" />
+                          <input required name="lastName" type="text" className="w-full bg-gray-50 border border-gray-300 rounded-lg p-3 focus:ring-2 focus:ring-eddy-orange outline-none transition-all" placeholder="Doe" />
                         </div>
                       </div>
                       <div>
                         <label className="block text-sm font-bold text-gray-700 mb-2">Service Needed</label>
-                        <select className="w-full bg-gray-50 border border-gray-300 rounded-lg p-3 focus:ring-2 focus:ring-eddy-orange outline-none transition-all">
+                        <select name="service" className="w-full bg-gray-50 border border-gray-300 rounded-lg p-3 focus:ring-2 focus:ring-eddy-orange outline-none transition-all">
                           <option>General Excavation</option>
                           <option>Site Grading</option>
                           <option>Land Clearing</option>
@@ -609,7 +636,7 @@ const App: React.FC = () => {
                       </div>
                       <div>
                         <label className="block text-sm font-bold text-gray-700 mb-2">Project Details</label>
-                        <textarea required rows={4} className="w-full bg-gray-50 border border-gray-300 rounded-lg p-3 focus:ring-2 focus:ring-eddy-orange outline-none transition-all" placeholder="Tell us about your project..."></textarea>
+                        <textarea required name="details" rows={4} className="w-full bg-gray-50 border border-gray-300 rounded-lg p-3 focus:ring-2 focus:ring-eddy-orange outline-none transition-all" placeholder="Tell us about your project..."></textarea>
                       </div>
                       <PrimaryButton className="w-full md:w-auto flex items-center justify-center gap-2" disabled={formStatus === 'submitting'}>
                         {formStatus === 'submitting' ? (
