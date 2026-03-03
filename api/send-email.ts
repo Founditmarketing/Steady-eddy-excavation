@@ -22,7 +22,7 @@ export default async function handler(req: Request) {
     }
 
     try {
-        const { firstName, lastName, service, details } = await req.json();
+        const { firstName, lastName, phone, service, details } = await req.json();
 
         const { data, error } = await resend.emails.send({
             from: 'Steady Eddy Excavation <notifications@steadyeddyexcavation.com>',
@@ -31,6 +31,7 @@ export default async function handler(req: Request) {
             html: `
         <h2>New Inquiry from Steady Eddy Excavation</h2>
         <p><strong>Name:</strong> ${firstName} ${lastName}</p>
+        <p><strong>Phone:</strong> ${phone}</p>
         <p><strong>Service Requested:</strong> ${service}</p>
         <p><strong>Project Details:</strong></p>
         <p>${details}</p>

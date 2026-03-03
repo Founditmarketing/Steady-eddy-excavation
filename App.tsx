@@ -172,6 +172,7 @@ const App: React.FC = () => {
     const data = {
       firstName: formData.get('firstName'),
       lastName: formData.get('lastName'),
+      phone: formData.get('phone'),
       service: formData.get('service'),
       details: formData.get('details'),
     };
@@ -624,15 +625,21 @@ const App: React.FC = () => {
                           <input required name="lastName" type="text" className="w-full bg-gray-50 border border-gray-300 rounded-lg p-3 focus:ring-2 focus:ring-eddy-orange outline-none transition-all" placeholder="Doe" />
                         </div>
                       </div>
-                      <div>
-                        <label className="block text-sm font-bold text-gray-700 mb-2">Service Needed</label>
-                        <select name="service" className="w-full bg-gray-50 border border-gray-300 rounded-lg p-3 focus:ring-2 focus:ring-eddy-orange outline-none transition-all">
-                          <option>General Excavation</option>
-                          <option>Site Grading</option>
-                          <option>Land Clearing</option>
-                          <option>Drainage</option>
-                          <option>Other</option>
-                        </select>
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                          <label className="block text-sm font-bold text-gray-700 mb-2">Phone Number</label>
+                          <input required name="phone" type="tel" className="w-full bg-gray-50 border border-gray-300 rounded-lg p-3 focus:ring-2 focus:ring-eddy-orange outline-none transition-all" placeholder="(555) 000-0000" />
+                        </div>
+                        <div>
+                          <label className="block text-sm font-bold text-gray-700 mb-2">Service Needed</label>
+                          <select name="service" className="w-full bg-gray-50 border border-gray-300 rounded-lg p-3 focus:ring-2 focus:ring-eddy-orange outline-none transition-all">
+                            <option>General Excavation</option>
+                            <option>Site Grading</option>
+                            <option>Land Clearing</option>
+                            <option>Drainage</option>
+                            <option>Other</option>
+                          </select>
+                        </div>
                       </div>
                       <div>
                         <label className="block text-sm font-bold text-gray-700 mb-2">Project Details</label>
