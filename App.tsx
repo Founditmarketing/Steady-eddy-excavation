@@ -588,7 +588,7 @@ const App: React.FC = () => {
                       </div>
                       <div>
                         <p className="text-xs uppercase font-bold opacity-70">Email</p>
-                        <p className="font-bold text-base md:text-lg break-words">Steadyeddyexcavation@gmail.com</p>
+                        <p className="font-bold text-base md:text-lg break-all md:break-words">Steadyeddyexcavation@gmail.com</p>
                       </div>
                     </div>
                     <div className="flex items-center gap-4">
