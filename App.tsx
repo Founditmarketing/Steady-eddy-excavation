@@ -579,7 +579,7 @@ const App: React.FC = () => {
                       </div>
                       <div>
                         <p className="text-xs uppercase font-bold opacity-70">Phone</p>
-                        <p className="font-bold text-lg">(555) 123-4567</p>
+                        <p className="font-bold text-lg">(575) 224-1886</p>
                       </div>
                     </div>
                     <div className="flex items-center gap-4">
@@ -717,7 +717,7 @@ const App: React.FC = () => {
                   </li>
                   <li className="flex gap-3">
                     <Phone className="text-eddy-orange flex-shrink-0" size={20} />
-                    <span>(555) 123-4567</span>
+                    <span>(575) 224-1886</span>
                   </li>
                   <li className="flex gap-3">
                     <Mail className="text-eddy-orange flex-shrink-0" size={20} />
