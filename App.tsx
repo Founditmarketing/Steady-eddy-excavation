@@ -565,7 +565,7 @@ const App: React.FC = () => {
               <div className="bg-white rounded-3xl overflow-hidden shadow-2xl flex flex-col md:flex-row">
 
                 {/* Contact Info */}
-                <div className="md:w-1/3 bg-eddy-orange p-12 text-white relative overflow-hidden">
+                <div className="md:w-[40%] bg-eddy-orange p-8 md:p-12 text-white relative overflow-hidden">
                   <div className="absolute -bottom-10 -right-10 opacity-10">
                     <Shovel size={200} />
                   </div>
@@ -588,7 +588,7 @@ const App: React.FC = () => {
                       </div>
                       <div>
                         <p className="text-xs uppercase font-bold opacity-70">Email</p>
-                        <p className="font-bold text-lg">Steadyeddyexcavation@gmail.com</p>
+                        <p className="font-bold text-base md:text-lg break-words">Steadyeddyexcavation@gmail.com</p>
                       </div>
                     </div>
                     <div className="flex items-center gap-4">
@@ -604,7 +604,7 @@ const App: React.FC = () => {
                 </div>
 
                 {/* Form */}
-                <div className="md:w-2/3 p-12 bg-white relative">
+                <div className="md:w-[60%] p-8 md:p-12 bg-white relative">
                   {formStatus === 'success' ? (
                     <div className="absolute inset-0 flex flex-col items-center justify-center bg-white p-8 animate-in fade-in duration-500 text-center">
                       <div className="w-20 h-20 bg-green-100 text-green-600 rounded-full flex items-center justify-center mb-6">
