@@ -25,7 +25,7 @@ export default async function handler(req: Request) {
         const { firstName, lastName, service, details } = await req.json();
 
         const { data, error } = await resend.emails.send({
-            from: 'Steady Eddy Excavation <onboarding@resend.dev>',
+            from: 'Steady Eddy Excavation <notifications@steadyeddyexcavation.com>',
             to: ['Kylan@founditmarketing.com'],
             subject: `New Contact Form Submission: ${service}`,
             html: `
