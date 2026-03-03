@@ -588,7 +588,7 @@ const App: React.FC = () => {
                       </div>
                       <div>
                         <p className="text-xs uppercase font-bold opacity-70">Email</p>
-                        <p className="font-bold text-lg">info@steadyeddy.com</p>
+                        <p className="font-bold text-lg">Steadyeddyexcavation@gmail.com</p>
                       </div>
                     </div>
                     <div className="flex items-center gap-4">
@@ -721,7 +721,7 @@ const App: React.FC = () => {
                   </li>
                   <li className="flex gap-3">
                     <Mail className="text-eddy-orange flex-shrink-0" size={20} />
-                    <span>info@steadyeddy.com</span>
+                    <span>Steadyeddyexcavation@gmail.com</span>
                   </li>
                   <li className="flex gap-3">
                     <Clock className="text-eddy-orange flex-shrink-0" size={20} />
