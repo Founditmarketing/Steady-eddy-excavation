@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { HashRouter } from 'react-router-dom';
+import { Analytics } from '@vercel/analytics/react';
 import Navbar from './components/Navbar';
 import { SectionHeader, PrimaryButton, OutlineButton, ScrollReveal } from './components/UIComponents';
 import { Shovel, Truck, Ruler, ShieldCheck, MapPin, Clock, Quote, Phone, Mail, Facebook, Hammer, Trees, X, Loader2, CheckCircle2, ClipboardCheck, HardHat, ThumbsUp, ChevronDown, ChevronUp, ArrowRight, Instagram, Linkedin, Trophy, Users, Calendar, MoveHorizontal, ArrowUp } from 'lucide-react';
@@ -803,6 +804,7 @@ const App: React.FC = () => {
           </div>
         )}
       </div>
+      <Analytics />
     </HashRouter>
   );
 };
