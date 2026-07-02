@@ -178,12 +178,17 @@ const App: React.FC = () => {
     };
 
     try {
-      const response = await fetch('/api/send-email', {
+      const response = await fetch('https://www.founditos.com/api/contact-form/8a45bcac-e482-4c2f-825d-02d8b8e21cd4', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(data),
+        body: JSON.stringify({
+          name: `${data.firstName} ${data.lastName}`.trim(),
+          email: '',
+          phone: data.phone as string,
+          message: `Service: ${data.service || 'General'}\n\n${data.details || ''}`,
+        }),
       });
 
       if (response.ok) {
